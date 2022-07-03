@@ -3,6 +3,7 @@ import 'package:digi_14/core/utils/styling/app_measurements.dart';
 import 'package:digi_14/core/utils/styling/padding_extensions.dart';
 import 'package:digi_14/core/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../../../core/presentation/widgets/app_image.dart';
 import '../../../core/utils/constants/app_typography.dart';
 import '../../../core/utils/styling/spacing_widgets.dart';
@@ -109,25 +110,25 @@ class EventCard extends StatelessWidget {
                 ),
                 Spacing.h5,
                 SizedBox(
-                  width: AppMeasures.screenWidth-20 - AppMeasures.pageMargin*2 -90,
+                  width: AppMeasures.screenWidth-30 - AppMeasures.pageMargin*2 -90,
                   child: Text(
                     event.shortTitle,
                     style: AppTextStyles.eventCardTitleStyle,
                   ),
                 ),
-                // const Spacer(),
-                // SizedBox(
-                //   width: 200,
-                //   child: Row(
-                //     children: [
-                //       Spacing.w6,
-                //       Text(
-                //         DateFormat('MMM dd, yyyy').format(event.datetimeLocal),
-                //         style: AppTextStyles.eventCardDateStyle,
-                //       ),
-                //     ],
-                //   ),
-                // )
+                const Spacer(),
+                SizedBox(
+                  width: 200,
+                  child: Row(
+                    children: [
+                      Spacing.w6,
+                      Text(
+                        DateFormat('MMM dd, yyyy').format(event.datetimeLocal),
+                        style: AppTextStyles.eventCardDateStyle,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ).paddingSymmetric(0, 10),
           ],
