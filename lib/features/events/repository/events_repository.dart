@@ -19,6 +19,9 @@ class EventsRepositoryImpl implements EventsRepository {
   Future<List<EventModel>> getEvents() async {
     try {
       final response = await networkCalls.get(APIs.events);
+      if (response == null || response.isEmpty) {
+        return [];
+      }
       GetEventsResponse getEventsResponse =
           GetEventsResponse.fromJson(response);
       return getEventsResponse.events;
@@ -31,9 +34,16 @@ class EventsRepositoryImpl implements EventsRepository {
   Future<List<EventModel>> searchEvents(String query) async {
     try {
       final response = await networkCalls.get(APIs.searchEvent(query));
-      GetEventsResponse getEventsResponse =
-          GetEventsResponse.fromJson(response);
-      return getEventsResponse.events;
+      if (response == null || response.isEmpty) {
+        return [];
+      }
+      try {
+        GetEventsResponse getEventsResponse =
+            GetEventsResponse.fromJson(response);
+        return getEventsResponse.events;
+      } catch (e) {
+        return [];
+      }
     } catch (e) {
       rethrow;
     }
