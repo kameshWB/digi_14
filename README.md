@@ -17,3 +17,4 @@ features - this folder is a collection of multiple fetures of the app, in this c
 ![image](https://user-images.githubusercontent.com/58357944/177025925-c594a704-99b0-48ba-8d67-9c5c1a65372f.png)
 ![image](https://user-images.githubusercontent.com/58357944/177025865-0389d7db-1453-495e-a26a-e0647c1df21b.png)
 
+test - this folder consists of all the unit tests for the bloc and repositories.
